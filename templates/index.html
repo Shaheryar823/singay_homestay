@@ -2,46 +2,63 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section id="hero">
-    <h1>Hero Section (Image + Title)</h1>
+<section id="hero" class="bg-gray-200 h-screen flex items-center justify-center text-center">
+    <div>
+        <h1 class="text-5xl font-bold mb-4">Welcome to Singay Homestay</h1>
+        <p class="text-xl">Cozy, Family-Friendly & Organic Stay</p>
+    </div>
 </section>
 
 <!-- Availability Categories -->
-<section id="availability">
-    <h2>Check Availability</h2>
+<section id="availability" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h2 class="text-3xl font-bold mb-8 text-center">Check Availability</h2>
 
-    <div class="category">
-        <h3>Rooms</h3>
-        <button>Check Availability</button>
-        <button>View</button>
-    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+        <!-- Rooms Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+            <h3 class="text-2xl font-semibold mb-4">Rooms</h3>
+            <button class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 mb-2 transition">Check Availability</button>
+            <button class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 transition">View</button>
+        </div>
 
-    <div class="category">
-        <h3>Family Unit</h3>
-        <button>Check Availability</button>
-        <button>View</button>
-    </div>
+        <!-- Family Unit Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+            <h3 class="text-2xl font-semibold mb-4">Family Unit</h3>
+            <button class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 mb-2 transition">Check Availability</button>
+            <button class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 transition">View</button>
+        </div>
 
-    <div class="category">
-        <h3>Full Villa</h3>
-        <button>Check Availability</button>
-        <button>View</button>
+        <!-- Full Villa Card -->
+        <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
+            <h3 class="text-2xl font-semibold mb-4">Full Villa</h3>
+            <button class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 mb-2 transition">Check Availability</button>
+            <button class="bg-gray-200 text-black px-4 py-2 rounded hover:bg-black hover:text-yellow-500 transition">View</button>
+        </div>
     </div>
 </section>
 
 <!-- Self Cooking Experience -->
-<section id="self-cooking">
-    <h2>Self Cooking Experience</h2>
+<section id="self-cooking" class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Self Cooking Experience</h2>
+        <p class="text-lg">Enjoy cooking your own meals with fresh local ingredients.</p>
+    </div>
 </section>
 
 <!-- Backyard with Fresh Vegetables -->
-<section id="backyard">
-    <h2>Backyard & Fresh Vegetables</h2>
+<section id="backyard" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Backyard & Fresh Vegetables</h2>
+        <p class="text-lg">Pick fresh vegetables from our organic backyard garden.</p>
+    </div>
 </section>
 
 <!-- BBQ & Sitting Hearth Area -->
-<section id="bbq">
-    <h2>BBQ & Sitting Hearth Area</h2>
+<section id="bbq" class="bg-gray-100 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">BBQ & Sitting Hearth Area</h2>
+        <p class="text-lg">Relax and enjoy a BBQ in our cozy sitting hearth area.</p>
+    </div>
 </section>
 
 {% endblock %}

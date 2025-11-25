@@ -4,32 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singay Homestay</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="font-sans text-gray-800">
 
     <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/villa">Villa</a></li>
-            <li><a href="/family-unit">Family Unit</a></li>
-            <li><a href="/rooms">Rooms</a></li>
-            <li><a href="/gallery">Photo Gallery</a></li>
-        </ul>
+    <nav class="bg-black text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold">Singay Homestay</div>
+                <ul class="flex space-x-6">
+                    <li><a href="/" class="hover:text-yellow-400">Home</a></li>
+                    <li><a href="/villa" class="hover:text-yellow-400">Villa</a></li>
+                    <li><a href="/family-unit" class="hover:text-yellow-400">Family Unit</a></li>
+                    <li><a href="/rooms" class="hover:text-yellow-400">Rooms</a></li>
+                    <li><a href="/gallery" class="hover:text-yellow-400">Photo Gallery</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <!-- Page content -->
-    {% block content %}{% endblock %}
+    <!-- Page Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <ul>
-            <li>Contact Us (details only)</li>
-            <li><a href="/about">About Us</a></li>
-            <li><a href="/contact">Contact Page</a></li>
-            <li><a href="/policies">Policies</a></li>
-            <li><a href="/privacy-policy">Privacy Policy</a></li>
-        </ul>
+    <footer class="bg-gray-900 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between space-y-4 md:space-y-0">
+            <div>Contact Us (details only)</div>
+            <div class="flex space-x-6">
+                <a href="/about" class="hover:text-yellow-400">About Us</a>
+                <a href="/contact" class="hover:text-yellow-400">Contact Page</a>
+                <a href="/policies" class="hover:text-yellow-400">Policies</a>
+                <a href="/privacy-policy" class="hover:text-yellow-400">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
 
 </body>
