@@ -4,415 +4,211 @@
 <!-- Hero Section -->
 <section 
   class="relative h-screen bg-cover bg-center flex items-center"
-  style="background-image: url('/static/images/banner-min.JPG');">
+  style="background-image: url('/static/images/banner-min.webp');">
 
-    <!-- Dark overlay -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
 
-    <!-- Content -->
-    <div class="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-10">
+  <div class="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-10">
 
-        <!-- LEFT: Travel Headline -->
-        <div class="max-w-xl text-white">
-            <div class="flex items-center gap-3 mb-4">
-                <span class="px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-semibold shadow">
-                    Travel to Skardu
-                </span>
-                <span class="px-4 py-1 bg-white/20 border border-white/20 backdrop-blur-md rounded-full text-sm">
-                    Mountain Escape
-                </span>
-            </div>
+    <!-- LEFT: Travel Headline -->
+    <div class="max-w-xl text-white">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-semibold shadow">
+          Travel to Skardu
+        </span>
+        <span class="px-4 py-1 bg-white/20 border border-white/20 backdrop-blur-md rounded-full text-sm">
+          Mountain Escape
+        </span>
+      </div>
 
-            <h1 class="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg">
-                Discover the <span class="text-yellow-400">Beauty</span>  
-                of Skardu with a Cozy Stay
-            </h1>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+        Discover the <span class="text-yellow-400">Beauty</span> of Skardu with a Cozy Stay
+      </h1>
 
-            <p class="text-lg mt-4 opacity-90 drop-shadow">
-                Wake up to mountain views, breathe fresh air, and experience  
-                the warmth of local Balti hospitality at Singay Homestay.
-            </p>
+      <p class="text-lg mt-4 opacity-90 drop-shadow">
+        Wake up to mountain views, breathe fresh air, and experience the warmth of local Balti hospitality at Singay Homestay.
+      </p>
 
-            <div class="mt-6 flex gap-4">
-                <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
-                    <span class="text-2xl font-bold">2500m</span>
-                    <p class="text-sm opacity-80">Altitude</p>
-                </div>
-
-                <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
-                    <span class="text-2xl font-bold">⛰️</span>
-                    <p class="text-sm opacity-80">Near Kharpocho</p>
-                </div>
-
-                <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
-                    <span class="text-2xl font-bold">⭐</span>
-                    <p class="text-sm opacity-80">Family-Friendly</p>
-                </div>
-            </div>
+      <div class="mt-6 flex gap-4">
+        <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
+          <span class="text-2xl font-bold">2500m</span>
+          <p class="text-sm opacity-80">Altitude</p>
         </div>
-
-        <!-- RIGHT: Travel Booking Card -->
-        <div class="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md mt-10 md:mt-0 md:ml-10">
-            <h3 class="text-2xl font-semibold mb-3 text-gray-800">Plan Your Stay</h3>
-            <p class="text-gray-600 mb-4 text-sm">Your Skardu adventure starts here.</p>
-
-            <form class="space-y-4">
-                <!-- Room Type -->
-                <div>
-                    <label class="text-sm text-gray-700">Room Type</label>
-                    <select name="room_type" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400 text-gray-700">
-                        <option value="">Select Room</option>
-                        <option value="standard">Standard Room</option>
-                        <option value="deluxe">Deluxe Room</option>
-                        <option value="executive">Executive Family Room</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label class="text-sm text-gray-700">Check-in</label>
-                    <input name="checkin" type="date" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
-                </div>
-
-                <div>
-                    <label class="text-sm text-gray-700">Check-out</label>
-                    <input name="checkout" type="date" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
-                </div>
-
-                <button class="w-full bg-yellow-500 text-black py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">
-                    Check Availability
-                </button>
-            </form>
+        <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
+          <span class="text-2xl font-bold">⛰️</span>
+          <p class="text-sm opacity-80">Near Kharpocho</p>
         </div>
-
+        <div class="bg-white/10 p-3 rounded-xl backdrop-blur-xl border border-white/20 text-center">
+          <span class="text-2xl font-bold">⭐</span>
+          <p class="text-sm opacity-80">Family-Friendly</p>
+        </div>
+      </div>
     </div>
+
+    <!-- RIGHT: Booking Card -->
+    <div class="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md mt-10 md:mt-0 md:ml-10">
+      <h3 class="text-2xl font-semibold mb-3 text-gray-800">Plan Your Stay</h3>
+      <p class="text-gray-600 mb-4 text-sm">Your Skardu adventure starts here.</p>
+
+      <form class="space-y-4">
+        <div>
+          <label class="text-sm text-gray-700">Room Type</label>
+          <select class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400 text-gray-700">
+            <option value="">Select Room</option>
+            <option value="standard">Standard Room</option>
+            <option value="deluxe">Deluxe Room</option>
+            <option value="executive">Executive Family Room</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-700">Check-in</label>
+          <input type="date" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
+        </div>
+
+        <div>
+          <label class="text-sm text-gray-700">Check-out</label>
+          <input type="date" class="w-full p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
+        </div>
+
+        <button class="w-full bg-yellow-500 text-black py-3 rounded-lg font-semibold hover:bg-yellow-600 transition">
+          Check Availability
+        </button>
+      </form>
+    </div>
+
+  </div>
 </section>
 
 <!-- Availability Categories -->
 <section id="availability" class="relative py-24 bg-black text-white overflow-hidden">
 
-    <!-- Background -->
-    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80')] bg-cover bg-center"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
+  <!-- Background -->
+  <div class="absolute inset-0 opacity-20 bg-[url('/static/images/banner-min.webp')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
 
-    <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
 
-        <!-- LEFT CONTENT -->
-        <div class="space-y-6">
-            
-            <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
-                Availability
-            </div>
+    <!-- LEFT CONTENT -->
+    <div class="space-y-6">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
+        Availability
+      </div>
 
-            <h2 class="text-5xl font-extrabold leading-tight">
-                Choose Your Stay  
-                <span class="text-yellow-500">— Just a Click Away</span>
-            </h2>
+      <h2 class="text-5xl font-extrabold leading-tight">
+        Choose Your Stay  
+        <span class="text-yellow-500">— Just a Click Away</span>
+      </h2>
 
-            <p class="text-lg text-gray-300 max-w-md">
-                Whether you're a solo traveler, a family, or a group seeking full privacy, 
-                Singay Homestay offers accommodations tailored to your journey.
-            </p>
+      <p class="text-lg text-gray-300 max-w-md">
+        Whether you're a solo traveler, a family, or a group seeking full privacy, Singay Homestay offers accommodations tailored to your journey.
+      </p>
 
-             <!-- Room Card -->
-            <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
-                <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
-                    <img src="/static/images/banner-min.JPG" alt="Room 1" loading="lazy" class="absolute w-full h-full object-cover opacity-100 transition-opacity duration-700">
-                    <img src="/static/images/banner-min.JPG" alt="Room 2" loading="lazy" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-                    <img src="/static/images/banner.JPG" alt="Room 3" loading="lazy" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-                </div>
-
-                <h3 class="text-3xl font-bold mb-2">Rooms</h3>
-                <p class="text-gray-300 text-sm mb-4">Cozy, warm, private rooms ideal for couples & small families.</p>
-
-                <div class="flex gap-3">
-                    <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
-                    <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
-                </div>
-            </div>
+      <!-- Rooms Card -->
+      <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
+        <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
+          <img src="/static/images/banner-min.webp" loading="lazy" class="absolute w-full h-full object-cover">
         </div>
-
-        <!-- RIGHT ROOM CARDS -->
-        <div class="grid gap-10">
-
-            <!-- Family Unit -->
-            <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
-                <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
-                    <img src="/static/images/banner.JPG" alt="Family Unit 1" loading="lazy" class="absolute w-full h-full object-cover opacity-100 transition-opacity duration-700">
-                    <img src="/static/images/banner-min.JPG" alt="Family Unit 2" loading="lazy" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-                </div>
-
-                <h3 class="text-3xl font-bold mb-2">Family Unit</h3>
-                <p class="text-gray-300 text-sm mb-4">Spacious unit with multiple beds, balcony views & full privacy.</p>
-
-                <div class="flex gap-3">
-                    <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
-                    <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
-                </div>
-            </div>
-
-            <!-- Full Villa -->
-            <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
-                <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
-                    <img src="/static/images/banner.JPG" alt="Full Villa 1" loading="lazy" class="absolute w-full h-full object-cover opacity-100 transition-opacity duration-700">
-                    <img src="/static/images/banner-min.JPG" alt="Full Villa 2" loading="lazy" class="absolute w-full h-full object-cover opacity-0 transition-opacity duration-700">
-                </div>
-
-                <h3 class="text-3xl font-bold mb-2">Full Villa</h3>
-                <p class="text-gray-300 text-sm mb-4">Perfect for groups wanting the entire private homestay experience.</p>
-
-                <div class="flex gap-3">
-                    <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
-                    <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
-                </div>
-            </div>
-
+        <h3 class="text-3xl font-bold mb-2">Rooms</h3>
+        <p class="text-gray-300 text-sm mb-4">Cozy, private rooms ideal for couples & small families.</p>
+        <div class="flex gap-3">
+          <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
+          <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
         </div>
+      </div>
     </div>
-</section>
 
-<!-- Slider Script -->
-<script>
-document.querySelectorAll('#availability .relative.h-56').forEach(container => {
-    let slides = container.querySelectorAll('img');
-    let i = 0;
-    setInterval(() => {
-        slides[i].classList.remove('opacity-100');
-        slides[i].classList.add('opacity-0');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('opacity-100');
-        slides[i].classList.remove('opacity-0');
-    }, 4000);
-});
-</script>
+    <!-- RIGHT ROOM CARDS -->
+    <div class="grid gap-10">
+      <!-- Family Unit -->
+      <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
+        <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
+          <img src="/static/images/banner-min.webp" loading="lazy" class="absolute w-full h-full object-cover">
+        </div>
+        <h3 class="text-3xl font-bold mb-2">Family Unit</h3>
+        <p class="text-gray-300 text-sm mb-4">Spacious unit with multiple beds and balcony views.</p>
+        <div class="flex gap-3">
+          <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
+          <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
+        </div>
+      </div>
+
+      <!-- Full Villa -->
+      <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
+        <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
+          <img src="/static/images/banner-min.webp" loading="lazy" class="absolute w-full h-full object-cover">
+        </div>
+        <h3 class="text-3xl font-bold mb-2">Full Villa</h3>
+        <p class="text-gray-300 text-sm mb-4">Perfect for groups wanting the entire private homestay experience.</p>
+        <div class="flex gap-3">
+          <button class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">Check</button>
+          <button class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">View</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- Self Cooking Experience -->
 <section id="self-cooking" class="relative py-24 bg-black text-white overflow-hidden">
-
-    <!-- Background Texture -->
-    <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80')] bg-cover bg-center"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-
-        <!-- LEFT CONTENT -->
-        <div class="space-y-6">
-            <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
-                Self Cooking Experience
-            </div>
-
-            <h2 class="text-5xl font-extrabold leading-tight">
-                Cook With <span class="text-yellow-500">Warmth</span>, Live Like a Local
-            </h2>
-
-            <p class="text-lg text-gray-300">
-                Step into a cozy kitchen setting where the aroma of fresh ingredients blends with the quiet calm of Skardu’s mountains.
-                Create meals your way — from quick breakfasts to full family dinners.
-            </p>
-
-            <div class="grid grid-cols-3 gap-6 mt-10">
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🍳</span>
-                    <p class="text-sm font-semibold">Complete Kitchen</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🌿</span>
-                    <p class="text-sm font-semibold">Organic Ingredients</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🔥</span>
-                    <p class="text-sm font-semibold">Traditional Options</p>
-                </div>
-            </div>
-
-            <button class="mt-6 bg-yellow-500 text-black px-7 py-3 rounded-xl font-bold hover:bg-white transition-all">
-                Explore Kitchen →
-            </button>
-        </div>
-
-        <!-- RIGHT SIDE VISUAL EXPERIENCE CARD -->
-        <div class="relative">
-
-            <!-- Main Image -->
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
-                <img src="/static/images/cooking1.JPG" alt="Self Cooking Main" loading="lazy"
-                     class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700 ease-out" />
-
-                <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
-                    <p class="text-sm">Cozy • Warm • Homelike</p>
-                </div>
-            </div>
-
-            <!-- Mini Floating Image 1 -->
-            <div class="absolute -top-8 -right-8 hidden sm:block">
-                <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="/static/images/cooking2.JPG" alt="Cooking Mini 1" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <!-- Mini Floating Image 2 -->
-            <div class="absolute bottom-10 -left-10 hidden sm:block">
-                <div class="w-36 h-36 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="/static/images/cooking1.JPG" alt="Cooking Mini 2" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="absolute inset-0 rounded-3xl border-2 border-yellow-500/20"></div>
-        </div>
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <!-- LEFT -->
+    <div class="space-y-6">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">Self Cooking Experience</div>
+      <h2 class="text-5xl font-extrabold leading-tight">Cook With <span class="text-yellow-500">Warmth</span>, Live Like a Local</h2>
+      <p class="text-lg text-gray-300">
+        Step into a cozy kitchen setting where the aroma of fresh ingredients blends with the quiet calm of Skardu’s mountains.
+        Create meals your way — from quick breakfasts to full family dinners.
+      </p>
+      <div class="grid grid-cols-3 gap-6 mt-10">
+        <div class="flex flex-col items-center text-center space-y-2"><span class="text-4xl">🍳</span><p class="text-sm font-semibold">Complete Kitchen</p></div>
+        <div class="flex flex-col items-center text-center space-y-2"><span class="text-4xl">🌿</span><p class="text-sm font-semibold">Organic Ingredients</p></div>
+        <div class="flex flex-col items-center text-center space-y-2"><span class="text-4xl">🔥</span><p class="text-sm font-semibold">Traditional Options</p></div>
+      </div>
     </div>
+    <!-- RIGHT IMAGE -->
+    <div class="relative">
+      <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
+        <img src="/static/images/cooking1.webp" loading="lazy" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
+        <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
+          <p class="text-sm">Cozy • Warm • Homelike</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <!-- Backyard Section -->
 <section id="backyard" class="relative py-24 bg-black text-white overflow-hidden">
-
-    <div class="absolute inset-0 opacity-25 bg-[url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80')] bg-cover bg-center"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-transparent"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-
-        <!-- RIGHT IMAGE CLUSTER -->
-        <div class="relative">
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
-                <img src="https://images.unsplash.com/photo-1524593119771-e5f4e79c39b2?q=80" alt="Backyard Main" loading="lazy"
-                     class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
-                <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
-                    <p class="text-sm">Fresh • Organic • Local</p>
-                </div>
-            </div>
-
-            <div class="absolute -top-8 -left-8 hidden sm:block">
-                <div class="w-36 h-36 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400" alt="Backyard Mini Left" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="absolute bottom-10 -right-10 hidden sm:block">
-                <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=400" alt="Backyard Mini Right" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="absolute inset-0 rounded-3xl border-2 border-yellow-500/20"></div>
-        </div>
-
-        <!-- LEFT CONTENT -->
-        <div class="space-y-6">
-            <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold">
-                Organic Backyard
-            </div>
-
-            <h2 class="text-5xl font-extrabold leading-tight">
-                Fresh <span class="text-yellow-500">Garden</span> Harvest  
-                Right From Our Backyard
-            </h2>
-
-            <p class="text-lg text-gray-300">
-                Wander through a peaceful organic garden where fresh vegetables grow under 
-                Skardu’s crisp mountain air. Pick what you love, cook the way you want, 
-                and enjoy the taste of pure, natural freshness.
-            </p>
-
-            <div class="grid grid-cols-3 gap-6 mt-10">
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🥬</span>
-                    <p class="text-sm font-semibold">Organic Greens</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🥕</span>
-                    <p class="text-sm font-semibold">Root Vegetables</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🍅</span>
-                    <p class="text-sm font-semibold">Seasonal Produce</p>
-                </div>
-            </div>
-
-            <button class="mt-6 bg-yellow-500 text-black px-7 py-3 rounded-xl font-bold hover:bg-white transition">
-                Explore Garden →
-            </button>
-        </div>
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="relative">
+      <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
+        <img src="/static/images/cooking2.webp" loading="lazy" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
+      </div>
     </div>
+    <div class="space-y-6">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold">Organic Backyard</div>
+      <h2 class="text-5xl font-extrabold leading-tight">Fresh <span class="text-yellow-500">Garden</span> Harvest Right From Our Backyard</h2>
+      <p class="text-lg text-gray-300">Wander through a peaceful organic garden where fresh vegetables grow under Skardu’s crisp mountain air. Pick what you love, cook the way you want, and enjoy the taste of pure, natural freshness.</p>
+    </div>
+  </div>
 </section>
-
 
 <!-- BBQ Section -->
 <section id="bbq" class="relative py-24 bg-black text-white overflow-hidden">
-
-    <div class="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80')] bg-cover bg-center"></div>
-    <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/40"></div>
-
-    <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-
-        <!-- LEFT CONTENT -->
-        <div class="space-y-6">
-            <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
-                BBQ & Hearth
-            </div>
-
-            <h2 class="text-5xl font-extrabold leading-tight">
-                Cozy Evenings  
-                <span class="text-yellow-500">Around the Fire</span>
-            </h2>
-
-            <p class="text-lg text-gray-300">
-                Feel the warmth of crackling firewood, enjoy a peaceful BBQ night under Skardu’s starry sky, 
-                and relax in a traditional hearth sitting area designed for comfort and memorable gatherings.
-            </p>
-
-            <div class="grid grid-cols-3 gap-6 mt-10">
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🔥</span>
-                    <p class="text-sm font-semibold">Warm Hearth</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🍢</span>
-                    <p class="text-sm font-semibold">BBQ Setup</p>
-                </div>
-                <div class="flex flex-col items-center text-center space-y-2">
-                    <span class="text-4xl">🌌</span>
-                    <p class="text-sm font-semibold">Starry Nights</p>
-                </div>
-            </div>
-
-            <button class="mt-6 bg-yellow-500 text-black px-7 py-3 rounded-xl font-bold hover:bg-white transition">
-                View Hearth Area →
-            </button>
-        </div>
-
-        <!-- RIGHT CLUSTER IMAGES -->
-        <div class="relative">
-            <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
-                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80" alt="BBQ Main" loading="lazy"
-                     class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
-                <div class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/10">
-                    <p class="text-sm">Cozy • Warm • Relaxing</p>
-                </div>
-            </div>
-
-            <div class="absolute -top-8 -left-10 hidden sm:block">
-                <div class="w-36 h-36 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="https://images.unsplash.com/photo-1602626134803-8ec2f9017c2e?q=80&w=400" alt="BBQ Mini Left" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="absolute bottom-10 -right-10 hidden sm:block">
-                <div class="w-32 h-32 rounded-2xl overflow-hidden shadow-xl border border-white/20">
-                    <img src="https://images.unsplash.com/photo-1563298723-dcfebaa392e3?q=80&w=400" alt="BBQ Mini Right" loading="lazy"
-                         class="w-full h-full object-cover" />
-                </div>
-            </div>
-
-            <div class="absolute inset-0 rounded-3xl border-2 border-yellow-500/20"></div>
-        </div>
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="space-y-6">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">BBQ & Hearth</div>
+      <h2 class="text-5xl font-extrabold leading-tight">Cozy Evenings <span class="text-yellow-500">Around the Fire</span></h2>
+      <p class="text-lg text-gray-300">Feel the warmth of crackling firewood, enjoy a peaceful BBQ night under Skardu’s starry sky, and relax in a traditional hearth sitting area designed for comfort and memorable gatherings.</p>
     </div>
+    <div class="relative">
+      <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
+        <img src="/static/images/banner-min.webp" loading="lazy" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
+      </div>
+    </div>
+  </div>
 </section>
-
 
 {% endblock %}
