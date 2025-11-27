@@ -1,0 +1,22 @@
+/* Dropdown animation */
+.dropdown-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1s ease, opacity 1.5s ease;
+    opacity: 0;
+}
+
+.dropdown-container.open {
+    max-height: 500px; /* large enough to show all items */
+    opacity: 1;
+}
+
+.dropdown-container a {
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.2s;
+}
+
+.dropdown-container a:hover {
+    color: #facc15; /* yellow-400 */
+}
