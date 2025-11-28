@@ -206,16 +206,89 @@
 
 <!-- BBQ Section -->
 <section id="bbq" class="relative py-24 bg-black text-white overflow-hidden">
-  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+  <div class="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">    
     <div class="space-y-6">
-      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">BBQ & Patio</div>
-      <h2 class="text-5xl font-extrabold leading-tight">Cozy Evenings <span class="text-yellow-500">Around the Fire</span></h2>
-      <p class="text-lg text-gray-300">Feel the warmth of crackling firewood, enjoy a peaceful BBQ night under Skardu’s starry sky, and relax in a traditional patio sitting area designed for comfort and memorable gatherings.</p>
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
+        BBQ & Patio
+      </div>
+      <h2 class="text-5xl font-extrabold leading-tight">
+        Cozy Evenings <span class="text-yellow-500">Around the Fire</span>
+      </h2>
+      <p class="text-lg text-gray-300">
+        Feel the warmth of crackling firewood, enjoy a peaceful BBQ night under Skardu’s starry sky, and relax in a traditional patio sitting area designed for comfort and memorable gatherings. <br>
+        Right under French cherry and golden apple trees, the patio adds a natural charm and serene ambiance to your evenings.
+      </p>
     </div>
     <div class="relative">
       <div class="rounded-3xl overflow-hidden shadow-2xl border border-white/20 group">
         <img src="/static/images/bbq.webp" loading="lazy" class="w-full h-[420px] object-cover group-hover:scale-105 transition duration-700" />
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Facilities & Nearby Locations Section -->
+<section id="facilities" class="relative py-24 bg-gray-900 text-white overflow-hidden">
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0">
+    <img src="/static/images/facilities-bg.jpg" alt="Facilities Background" class="w-full h-full object-cover opacity-90">
+    <div class="absolute inset-0 bg-black/80"></div> <!-- Dark overlay for blending with footer -->
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 text-white">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
+        Explore More
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Homestay Facilities & Nearby Locations</h2>
+      <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
+        Experience the perfect blend of comfort and convenience at Singay Homestay, with facilities designed for relaxation and nearby attractions to explore.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Card 1: Homestay Facilities -->
+      <div class="bg-black/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20 hover:scale-105 transition transform duration-500 flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-4">Homestay Facilities</h3>
+          <ul class="space-y-2 text-gray-200 list-disc list-inside">
+            <li>Cozy Rooms with Organic Interiors</li>
+            <li>BBQ Patio & Fire Pit</li>
+            <li>Free Wi-Fi & Workspace</li>
+            <li>Garden Seating under Fruit Trees</li>
+            <li>Traditional Balti Cuisine Experience</li>
+          </ul>
+        </div>
+        <div class="mt-6 text-center">
+          <a href="/facilities" class="inline-block bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition">
+            More Details
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Nearby Locations -->
+      <div class="bg-black/70 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/20 hover:scale-105 transition transform duration-500 flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-bold text-yellow-400 mb-4">Nearby Locations</h3>
+          <ul class="space-y-2 text-gray-200 list-disc list-inside">
+            <li>Shangrila Resort – 5 min drive</li>
+            <li>Skardu Bazaar – 10 min drive</li>
+            <li>Shigar Fort – 25 min drive</li>
+            <li>Upper Kachura Lake – 40 min drive</li>
+            <li>Deosai National Park – 2 hr drive</li>
+          </ul>
+        </div>
+        <div class="mt-6 text-center">
+          <a href="/nearby-locations" class="inline-block bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition">
+            More Details
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
