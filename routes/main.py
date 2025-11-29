@@ -10,7 +10,7 @@ def home():
 
 @main_bp.route('/villa')
 def villa():
-    return "COmming Soon"
+    return render_template("villa.html")
 
 @main_bp.route('/family-unit')
 def family_unit():
