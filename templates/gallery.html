@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative h-96 bg-cover bg-center flex items-center"
+         style="background-image: url('/static/images/banner.webp');">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
+  <div class="relative z-10 text-center w-full px-6">
+    <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+      Our Gallery
+    </h1>
+    <p class="text-gray-200 mt-4 text-sm md:text-lg max-w-2xl mx-auto">
+      Explore the beauty, comfort, and experiences at Singay Homestay through our curated gallery.
+    </p>
+  </div>
+</section>
+
+<!-- Gallery Grid Section -->
+<section class="py-24 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-6">
+
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-extrabold">Experience Every Corner</h2>
+      <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
+        From cozy rooms to scenic views, every moment at Singay Homestay is picture-perfect.
+      </p>
+    </div>
+
+    <!-- Image Grid -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {% set gallery_items = [
+        {'src': '/static/images/villa.webp', 'tag': 'Luxury Villa'},
+        {'src': '/static/images/bbq.webp', 'tag': 'BBQ Patio'},
+        {'src': '/static/images/room1.webp', 'tag': 'Bedroom'},
+        {'src': '/static/images/room2.webp', 'tag': 'Bedroom'},
+        {'src': '/static/images/room3.webp', 'tag': 'Bedroom'},
+        {'src': '/static/images/cooking1.webp', 'tag': 'Kitchen'},
+        {'src': '/static/images/tvlounge.webp', 'tag': 'Lounge'},
+        {'src': '/static/images/sitting.webp', 'tag': 'Backyard'}
+      ] %}
+
+      {% for item in gallery_items %}
+      <div class="relative overflow-hidden rounded-3xl shadow-2xl border border-white/20 group cursor-pointer">
+        <img src="{{ item.src }}" alt="{{ item.tag }}" 
+             class="w-full h-64 object-cover group-hover:scale-105 transition duration-700" loading="lazy">
+        <div class="absolute bottom-0 left-0 right-0 bg-black/50 py-2 px-3 text-sm text-white font-semibold opacity-0 group-hover:opacity-100 transition">
+          {{ item.tag }}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="py-24 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Experience Singay Homestay in Motion</h2>
+    <p class="text-gray-300 max-w-2xl mx-auto mb-10">
+      Watch a glimpse of our cozy villas, scenic surroundings, and memorable moments captured for our guests.
+    </p>
+
+    <div class="relative aspect-video max-w-4xl mx-auto rounded-3xl overflow-hidden shadow-2xl">
+      <iframe class="w-full h-full" 
+              src="https://www.youtube.com/embed/wqPbnlo1Z2Q?vq=hd720" 
+              title="Singay Homestay Video" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

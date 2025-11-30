@@ -4,33 +4,30 @@
 <!-- Hero Section -->
 <section 
   class="relative h-screen bg-cover bg-center flex items-center"
-  style="background-image: url('/static/images/villa.webp');">
+  style="background-image: url('/static/images/tvlounge.webp');">
 
   <div class="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30"></div>
 
   <div class="relative z-10 w-full flex flex-col md:flex-row items-center justify-between px-6 md:px-10">
 
-    <!-- LEFT: Headline -->
+    <!-- LEFT -->
     <div class="max-w-xl text-white">
 
-      <!-- Tags -->
       <div class="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
         <span class="px-3 py-1 md:px-4 md:py-1 bg-yellow-500 text-black rounded-full text-xs md:text-sm font-semibold shadow">
-          Luxury Villa
+          Family Unit
         </span>
         <span class="px-3 py-1 md:px-4 md:py-1 bg-white/20 border border-white/20 backdrop-blur-md rounded-full text-xs md:text-sm">
-          Private Stay
+          Cozy & Private
         </span>
       </div>
 
-      <!-- Title -->
       <h1 class="text-3xl md:text-6xl font-bold leading-tight drop-shadow-lg">
-        Stay in Our <span class="text-yellow-400">Exclusive Villa</span>
+        Stay in Our <span class="text-yellow-400">Family Suite</span>
       </h1>
 
-      <!-- Subtitle -->
       <p class="text-sm md:text-lg mt-3 md:mt-4 opacity-90 drop-shadow">
-        Privacy, comfort, and breathtaking views of Skardu — all in one villa.
+        A compact, comfortable, and private unit ideal for families seeking peaceful stays.
       </p>
     </div>
 
@@ -60,34 +57,33 @@
         </button>
       </form>
     </div>
-
   </div>
 </section>
 
-<!-- Villa Summary Section -->
+<!-- Summary Section -->
 <section class="py-20 bg-black text-white">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
 
     <!-- Text -->
     <div>
-      <h2 class="text-4xl font-bold mb-4">Singay Villa – Private & Cozy Stay</h2>
+      <h2 class="text-4xl font-bold mb-4">Family Unit – Cozy & Comfortable</h2>
       <p class="text-gray-300 leading-relaxed mb-6">
-        A peaceful villa stay surrounded by cherry and golden apple trees, designed for guests seeking 
-        comfort, privacy, and mountain views. Perfect for families, couples, and long stays.
+        Perfect for small families, this unit provides comfort, privacy, and essential amenities 
+        to make your stay pleasant and relaxing.
       </p>
 
       <ul class="space-y-2 text-gray-200">
-        <li>• Sleeps: 15–20 guests</li>
-        <li>• Bedrooms: 5 private rooms</li>
-        <li>• Bath: 4 modern bathroom</li>
-        <li>• View: Mountain + Orchard</li>
+        <li>• Sleeps: 4–6 guests</li>
+        <li>• Bedrooms: 2 rooms</li>
+        <li>• Bath: 2 private bathroom</li>
+        <li>• View: Orchard + Mountainline</li>
         <li>• Location: Skardu, Gilgit-Baltistan</li>
       </ul>
     </div>
 
     <!-- Price Box -->
     <div class="bg-white/10 p-8 rounded-3xl border border-white/10 shadow-xl">
-      <h3 class="text-3xl font-semibold mb-2">PKR 35,000</h3>
+      <h3 class="text-3xl font-semibold mb-2">PKR 15,000</h3>
       <p class="text-gray-300 mb-6 text-sm">Per night • Seasonal pricing applies</p>
 
       <a href="#booking"
@@ -99,30 +95,31 @@
   </div>
 </section>
 
-<!-- Villa Features / Amenities Section -->
-<section id="villa-features" class="relative py-24 bg-black text-white overflow-hidden">
+<!-- Amenities Section -->
+<section id="unit-features" class="relative py-24 bg-black text-white overflow-hidden">
   <div class="relative max-w-7xl mx-auto px-6">
 
-    <!-- Section Header -->
+    <!-- Header -->
     <div class="text-center mb-12">
       <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
-        Villa Amenities
+        Amenities
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">All the Comforts You Need</h2>
+      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Everything You Need</h2>
       <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
-        Our villa is equipped with everything to make your stay comfortable, cozy, and memorable.
+        A small yet well-equipped space designed for peaceful family stays.
       </p>
     </div>
 
-    <!-- Amenities Grid -->
+    <!-- Amenity Cards -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
       {% set amenities = [
-        {'title': 'Bedrooms', 'icon': '🏠', 'features': ['Spacious private rooms', 'King and queen beds', 'Organic bedding & linens']},
-        {'title': 'Bathrooms', 'icon': '🛁', 'features': ['Modern bathrooms', 'Hot & cold water', 'Eco-friendly toiletries']},
-        {'title': 'Kitchen & Dining', 'icon': '🍴', 'features': ['Fully equipped kitchen', 'Self-cooking experience', 'Dining area with mountain view']},
-        {'title': 'Living & Lounge', 'icon': '🛋️', 'features': ['Comfortable seating area', 'Fireplace & cozy ambiance', 'Entertainment & Wi-Fi']},
-        {'title': 'Outdoor Spaces', 'icon': '🌳', 'features': ['Terrace with mountain views', 'Backyard garden & BBQ area', 'Patio seating under fruit trees']},
-        {'title': 'Extras & Services', 'icon': '✨', 'features': ['Free Wi-Fi', 'Daily housekeeping', 'Airport pickup (optional)']}
+        {'title': 'Bedrooms', 'icon': '🛏️', 'features': ['2 full rooms', 'Soft bedding', 'Cupboards & storage']},
+        {'title': 'Bathroom', 'icon': '🚿', 'features': ['Clean bathroom', 'Hot & cold water', 'Essential toiletries']},
+        {'title': 'Kitchenette', 'icon': '🍳', 'features': ['Basic cooking setup', 'Utensils provided', 'Mini dining area']},
+        {'title': 'Lounge', 'icon': '🛋️', 'features': ['Compact seating area', 'TV available', 'Wi-Fi included']},
+        {'title': 'Outdoor Access', 'icon': '🌿', 'features': ['Garden access', 'Calm surroundings', 'Fresh orchard air']},
+        {'title': 'Extras', 'icon': '✨', 'features': ['Free Wi-Fi', 'Parking space', 'Daily cleaning (optional)']}
       ] %}
 
       {% for amenity in amenities %}
@@ -136,37 +133,33 @@
       </div>
       {% endfor %}
     </div>
+
   </div>
 </section>
 
-<!-- Villa Gallery Section -->
-<section id="villa-gallery" class="relative py-24 bg-black text-white overflow-hidden">
+<!-- Gallery Section -->
+<section id="unit-gallery" class="relative py-24 bg-black text-white overflow-hidden">
   <div class="relative max-w-7xl mx-auto px-6">
 
-    <!-- Section Header -->
     <div class="text-center mb-12">
-      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
+      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold">
         Gallery
       </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Explore Our Villa Interiors</h2>
+      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">Peek Inside the Family Unit</h2>
       <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
-        Take a virtual tour of the villa and enjoy the comfort, design, and serenity of Singay Homestay.
+        A closer look at the cozy and compact interior.
       </p>
     </div>
 
-    <!-- Image Grid -->
     <div class="grid sm:grid-cols-3 lg:grid-cols-3 gap-6">
+
       {% set gallery_items = [
-        {'src': '/static/images/villa.webp', 'tag': 'BBQ & Patio'},
-        {'src': '/static/images/bbq.webp', 'tag': 'BBQ & Patio'},
         {'src': '/static/images/room1.webp', 'tag': 'Bedroom'},
         {'src': '/static/images/room2.webp', 'tag': 'Bedroom'},
-        {'src': '/static/images/room3.webp', 'tag': 'Bedroom'},
-        {'src': '/static/images/room4.webp', 'tag': 'Bedroom'},
-        {'src': '/static/images/room5.webp', 'tag': 'Bedroom'},
-        {'src': '/static/images/cooking1.webp', 'tag': 'Kitchen'},
-        {'src': '/static/images/tvlounge.webp', 'tag': 'Lounge'},
-        {'src': '/static/images/sitting.webp', 'tag': 'Backyard'}
+        {'src': '/static/images/sitting.webp', 'tag': 'Bathroom'},
+        {'src': '/static/images/cooking1.webp', 'tag': 'Kitchenette'},
+        {'src': '/static/images/tvlounge.webp', 'tag': 'Sitting Area'},
+        {'src': '/static/images/bbq.webp', 'tag': 'View'}
       ] %}
 
       {% for item in gallery_items %}
@@ -177,7 +170,9 @@
         </span>
       </div>
       {% endfor %}
+
     </div>
+
   </div>
 </section>
 
@@ -187,14 +182,13 @@
 
     <h2 class="text-4xl font-bold mb-6">Location</h2>
     <p class="text-gray-300 max-w-2xl mx-auto mb-10">
-      Singay Villa is located in a peaceful and scenic area of Skardu, surrounded by orchards and 
-      mountains—just a short drive from main city attractions, restaurants, and the airport.
+      Our Family Unit is located within Singay Homestay premises, surrounded by fruit trees 
+      and peaceful views — just minutes away from local attractions.
     </p>
 
-    <!-- Map Card -->
     <div class="relative bg-white/10 border border-white/10 rounded-3xl p-4 shadow-2xl overflow-hidden">
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13062.410000000001!2d75.631!3d35.304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38f95bef0abc123%3A0x123456789abc!2sSkardu!5e0!3m2!1sen!2s!4v000000000"
+        src="YOUR_MAP_LINK"
         class="w-full h-[400px] rounded-2xl border-0"
         allowfullscreen=""
         loading="lazy"
@@ -204,6 +198,5 @@
 
   </div>
 </section>
-
 
 {% endblock %}

@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<section class="py-20 bg-black text-white">
+  <div class="max-w-5xl mx-auto px-6 space-y-6">
+
+    <!-- Section Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-4xl font-extrabold">Our Rooms</h2>
+      <p class="text-gray-300 mt-2">Select your preferred room and enjoy a cozy stay at Singay Homestay</p>
+    </div>
+
+    <!-- Rooms List -->
+    {% set rooms = [
+        {'name': "Couple Room", 'image': '/static/images/room1.webp', 'capacity': '3 Adults', 'rate': 'PKR 6,500.00', 'availability': '1 Rooms Left', 'details': 'This Couple Room has a king-size bed, balcony with mountain view, and a private attached bathroom.'},
+        {'name': "Double Room", 'image': '/static/images/room2.webp', 'capacity': '2 Adults', 'rate': 'PKR 5,500.00', 'availability': '1 Rooms Left', 'details': 'Double Room with queen bed, mountain-facing window, and shared bathroom.'},
+        {'name': "Family Room", 'image': '/static/images/room3.webp', 'capacity': '6 Adults', 'rate': 'PKR 8,500.00', 'availability': '1 Rooms Left', 'details': 'Spacious Family Room with 3 bedrooms, living area, and fully equipped amenities. Includes a private attached bathroom.'},
+        {'name': "Double Twin Room", 'image': '/static/images/room4.webp', 'capacity': '3 Adults', 'rate': 'PKR 5,500.00', 'availability': '1 Rooms Left', 'details': 'Twin beds, cozy interiors, mountain view, and shared bathroom.'},
+        {'name': "Twin Room", 'image': '/static/images/room5.webp', 'capacity': '3 Adults', 'rate': 'PKR 5,500.00', 'availability': '1 Rooms Left', 'details': 'Two single beds, compact design, perfect for small groups or friends. Shared bathroom.'}
+        ] %}
+
+
+    {% for room in rooms %}
+    <div class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg md:flex md:h-40">
+
+      <!-- Room Image -->
+      <div class="md:w-1/3 h-40">
+        <img src="{{ room.image }}" alt="{{ room.name }}" class="w-full h-full object-cover">
+      </div>
+
+      <!-- Room Info -->
+      <div class="md:w-2/3 p-4 flex flex-col justify-between">
+        <div>
+          <h3 class="text-xl font-bold mb-1">{{ room.name }}</h3>
+          <p class="text-sm text-gray-300 mb-1">
+            Capacity: {{ room.capacity }}
+          </p>
+          <p class="text-base font-semibold mb-1">{{ room.rate }} <span class="text-sm font-normal">per night</span></p>
+          <p class="text-xs text-gray-400 mb-2">{{ room.availability }}</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <!-- Room Info Button -->
+          <button onclick="openModal('modal-{{ loop.index }}')"
+                  class="px-3 py-1 border border-yellow-500 text-yellow-500 rounded-lg text-sm hover:bg-yellow-500 hover:text-black transition">
+            Room Info
+          </button>
+          <!-- Book Button -->
+          <a href="/booking?room={{ loop.index }}" class="px-3 py-1 bg-yellow-500 text-black rounded-lg text-sm hover:bg-yellow-600 transition">
+            Book / Check Availability
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal-{{ loop.index }}" class="fixed inset-0 bg-black/50 hidden justify-center items-center z-50">
+      <div class="bg-white rounded-2xl max-w-md w-full p-6 relative">
+        <!-- Close Button -->
+        <button onclick="closeModal('modal-{{ loop.index }}')" class="absolute top-4 right-4 text-gray-700 font-bold text-xl">&times;</button>
+        <h3 class="text-2xl font-bold mb-4">{{ room.name }}</h3>
+        <p class="text-gray-800 mb-4">{{ room.details }}</p>
+        <a href="/booking?room={{ loop.index }}" class="inline-block bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition">
+          Book Now
+        </a>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</section>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+    document.getElementById(id).classList.add('flex');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+    document.getElementById(id).classList.remove('flex');
+  }
+</script>
+
+{% endblock %}
