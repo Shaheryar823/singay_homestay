@@ -117,17 +117,21 @@
     <!-- Amenities Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
       {% set amenities = [
-        {'title': 'Bedrooms', 'icon': '🏠', 'features': ['Spacious private rooms', 'King and queen beds', 'Organic bedding & linens']},
-        {'title': 'Bathrooms', 'icon': '🛁', 'features': ['Modern bathrooms', 'Hot & cold water', 'Eco-friendly toiletries']},
-        {'title': 'Kitchen & Dining', 'icon': '🍴', 'features': ['Fully equipped kitchen', 'Self-cooking experience', 'Dining area with mountain view']},
-        {'title': 'Living & Lounge', 'icon': '🛋️', 'features': ['Comfortable seating area', 'Fireplace & cozy ambiance', 'Entertainment & Wi-Fi']},
-        {'title': 'Outdoor Spaces', 'icon': '🌳', 'features': ['Terrace with mountain views', 'Backyard garden & BBQ area', 'Patio seating under fruit trees']},
-        {'title': 'Extras & Services', 'icon': '✨', 'features': ['Free Wi-Fi', 'Daily housekeeping', 'Airport pickup (optional)']}
+          {'title': 'Bedrooms', 'icon': 'fa-solid fa-bed', 'features': ['Spacious private rooms', 'King and queen beds', 'Organic bedding & linens']},
+          {'title': 'Bathrooms', 'icon': 'fa-solid fa-bath', 'features': ['Modern bathrooms', 'Hot & cold water', 'Eco-friendly toiletries']},
+          {'title': 'Kitchen & Dining', 'icon': 'fa-solid fa-utensils', 'features': ['Fully equipped kitchen', 'Self-cooking experience', 'Dining area with mountain view']},
+          {'title': 'Living & Lounge', 'icon': 'fa-solid fa-couch', 'features': ['Comfortable seating area', 'Fireplace & cozy ambiance', 'Entertainment & Wi-Fi']},
+          {'title': 'Outdoor Spaces', 'icon': 'fa-solid fa-tree', 'features': ['Terrace with mountain views', 'Backyard garden & BBQ area', 'Patio seating under fruit trees']},
+          {'title': 'Extras & Services', 'icon': 'fa-solid fa-star', 'features': ['Free Wi-Fi', 'Daily housekeeping', 'Airport pickup (optional)']}
       ] %}
+
 
       {% for amenity in amenities %}
       <div class="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition">
-        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">{{ amenity.icon }} {{ amenity.title }}</h3>
+        <div>
+          <span class="{{ amenity.icon }} text-4xl mb-2 block"></span>
+          <h3 class="text-2xl font-bold">{{ amenity.title }}</h3>
+        </div>
         <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
           {% for item in amenity.features %}
           <li>{{ item }}</li>

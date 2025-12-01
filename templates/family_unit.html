@@ -114,17 +114,20 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
       {% set amenities = [
-        {'title': 'Bedrooms', 'icon': '🛏️', 'features': ['2 full rooms', 'Soft bedding', 'Cupboards & storage']},
-        {'title': 'Bathroom', 'icon': '🚿', 'features': ['Clean bathroom', 'Hot & cold water', 'Essential toiletries']},
-        {'title': 'Kitchenette', 'icon': '🍳', 'features': ['Basic cooking setup', 'Utensils provided', 'Mini dining area']},
-        {'title': 'Lounge', 'icon': '🛋️', 'features': ['Compact seating area', 'TV available', 'Wi-Fi included']},
-        {'title': 'Outdoor Access', 'icon': '🌿', 'features': ['Garden access', 'Calm surroundings', 'Fresh orchard air']},
-        {'title': 'Extras', 'icon': '✨', 'features': ['Free Wi-Fi', 'Parking space', 'Daily cleaning (optional)']}
+          {'title': 'Bedrooms', 'icon': 'fa-solid fa-bed', 'features': ['2 full rooms', 'Soft bedding', 'Cupboards & storage']},
+          {'title': 'Bathroom', 'icon': 'fa-solid fa-shower', 'features': ['Clean bathroom', 'Hot & cold water', 'Essential toiletries']},
+          {'title': 'Kitchenette', 'icon': 'fa-solid fa-utensils', 'features': ['Basic cooking setup', 'Utensils provided', 'Mini dining area']},
+          {'title': 'Lounge', 'icon': 'fa-solid fa-couch', 'features': ['Compact seating area', 'TV available', 'Wi-Fi included']},
+          {'title': 'Outdoor Access', 'icon': 'fa-solid fa-tree', 'features': ['Garden access', 'Calm surroundings', 'Fresh orchard air']},
+          {'title': 'Extras', 'icon': 'fa-solid fa-star', 'features': ['Free Wi-Fi', 'Parking space', 'Daily cleaning (optional)']}
       ] %}
 
       {% for amenity in amenities %}
       <div class="bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition">
-        <h3 class="text-2xl font-bold mb-3 flex items-center gap-2">{{ amenity.icon }} {{ amenity.title }}</h3>
+        <div>
+          <span class="{{ amenity.icon }} text-4xl mb-2 block"></span>
+          <h3 class="text-2xl font-bold">{{ amenity.title }}</h3>
+        </div>
         <ul class="text-gray-300 text-sm space-y-1 list-disc list-inside">
           {% for item in amenity.features %}
           <li>{{ item }}</li>

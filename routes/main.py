@@ -23,3 +23,19 @@ def rooms():
 @main_bp.route('/gallery')
 def gallery():
     return render_template("gallery.html")
+
+@main_bp.route('/contact')
+def contact():
+    return render_template("contact.html")
+
+@main_bp.route('/about')
+def about():
+    return render_template("about.html")
+
+@main_bp.route('/privacy')
+def privacy():
+    return render_template("privacy.html")
+
+@main_bp.route('/policies')
+def policies():
+    return render_template("policies.html")
