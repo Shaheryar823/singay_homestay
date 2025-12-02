@@ -1,11 +1,21 @@
 from flask import Flask
+from config.database import init_db
+from routes.main import main_bp
+from routes.booking import booking_bp
+# Import models so Flask-Migrate sees them
+from models.rooms import Room
+from models.booking import Booking
+from models.user import User
 
-# Initialize Flask app
+
 app = Flask(__name__)
 
-# Import routes (future use)
-from routes.main import main_bp
+# initialize DB
+init_db(app)
+
+# register blueprints
 app.register_blueprint(main_bp)
+app.register_blueprint(booking_bp)
 
 if __name__ == "__main__":
     app.run(debug=True)
