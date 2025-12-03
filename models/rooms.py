@@ -9,4 +9,3 @@ class Room(db.Model):
     bathroom_type = db.Column(db.String(20))  # private/shared
     is_available = db.Column(db.Boolean, default=True)
     image_url = db.Column(db.String(255))  # NEW: image path
-

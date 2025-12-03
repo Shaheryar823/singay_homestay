@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden">
+
+  <!-- Floating Stars -->
+  <div class="star" style="top: 15%; left: 20%; animation-delay: 0s;"></div>
+  <div class="star" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
+  <div class="star" style="top: 50%; left: 40%; animation-delay: 2s;"></div>
+  <div class="star" style="top: 70%; left: 60%; animation-delay: 3s;"></div>
+  <div class="star" style="top: 25%; left: 50%; animation-delay: 4s;"></div>
+
+  <div class="text-center px-6">
+
+    <h1 class="text-7xl md:text-8xl font-extrabold text-yellow-500 glow">404</h1>
+
+    <p class="mt-4 text-lg text-gray-300">
+      Oops… this page wandered off into the mountains.
+    </p>
+
+    <p class="text-gray-400 mt-1">
+      The place you're looking for doesn't exist.
+    </p>
+
+    <a href="/" 
+       class="mt-6 inline-block bg-yellow-500 text-black px-8 py-3 rounded-xl font-semibold hover:bg-yellow-400 transition shadow-lg">
+      Go Home
+    </a>
+
+    <div class="mt-10">
+      <img src="/static/images/banner-min.webp"
+           class="mx-auto rounded-2xl w-80 md:w-96 opacity-50 mountain border border-white/10 shadow-xl">
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -36,26 +36,35 @@
       <h3 class="text-xl md:text-2xl font-semibold mb-2 md:mb-3 text-gray-800">Book Your Villa</h3>
       <p class="text-gray-600 mb-3 md:mb-4 text-xs md:text-sm">Experience the villa lifestyle in Skardu.</p>
 
-      <form class="space-y-3 md:space-y-4">
+      <form action="/check-availability" method="POST" class="space-y-3 md:space-y-4">
+
+        <!-- Hidden room type -->
+        <input type="hidden" name="room_type" value="family-unit">
+
         <div>
-          <label class="text-xs md:text-sm text-gray-700">Check-in</label>
-          <input type="date" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
+            <label class="text-xs md:text-sm text-gray-700">Check-in</label>
+            <input name="checkin" type="date" required 
+                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
         </div>
 
         <div>
-          <label class="text-xs md:text-sm text-gray-700">Check-out</label>
-          <input type="date" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
+            <label class="text-xs md:text-sm text-gray-700">Check-out</label>
+            <input name="checkout" type="date" required
+                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
         </div>
 
         <div>
-          <label class="text-xs md:text-sm text-gray-700">Guests</label>
-          <input type="number" min="1" value="1" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
+            <label class="text-xs md:text-sm text-gray-700">Guests</label>
+            <input name="guests" type="number" min="1" value="1" required
+                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
         </div>
 
         <button class="w-full bg-yellow-500 text-black py-2 md:py-3 rounded-lg font-semibold hover:bg-yellow-600 transition text-sm md:text-base">
-          Check Availability
+            Check Availability
         </button>
-      </form>
+
+    </form>
+
     </div>
   </div>
 </section>
@@ -86,8 +95,8 @@
       <h3 class="text-3xl font-semibold mb-2">PKR 15,000</h3>
       <p class="text-gray-300 mb-6 text-sm">Per night • Seasonal pricing applies</p>
 
-      <a href="#booking"
-         class="inline-block bg-white text-black font-semibold px-6 py-3 rounded-xl hover:bg-gray-200 transition">
+      <a onclick="openPopup('family-unit')"
+         class="inline-block bg-white text-black font-semibold px-6 py-3 rounded-xl hover:bg-gray-200 transition cursor-pointer">
         Book Your Stay
       </a>
     </div>
@@ -201,5 +210,28 @@
 
   </div>
 </section>
+
+<div id="popup" class="fixed inset-0 bg-black/60 hidden items-center justify-center">
+  <form action="/check-availability" method="POST" class="bg-white p-6 rounded-xl w-80 space-y-4">
+      
+      <h2 class="text-xl font-bold">Check Availability</h2>
+
+      <input type="hidden" name="room_type" id="roomTypeInput">
+
+      <label class="block text-sm font-medium">Check-in</label>
+      <input type="date" name="checkin" required class="w-full border p-2 rounded">
+
+      <label class="block text-sm font-medium">Check-out</label>
+      <input type="date" name="checkout" required class="w-full border p-2 rounded">
+
+      <button class="w-full bg-yellow-500 font-semibold py-2 rounded">
+        Search
+      </button>
+
+      <button type="button" onclick="closePopup()" class="w-full mt-2 text-gray-600">
+        Cancel
+      </button>
+  </form>
+</div>
 
 {% endblock %}
