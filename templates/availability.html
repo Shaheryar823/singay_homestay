@@ -1,53 +1,261 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<section class="relative py-24 bg-black text-white overflow-hidden">
-  <div class="relative max-w-7xl mx-auto px-6">
+<!-- Applied dark background to main content area to match black theme -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-black text-white">
 
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <div class="inline-block px-4 py-1 bg-yellow-500 text-black rounded-full text-sm font-bold tracking-wide">
-        Available Rooms
-      </div>
-      <h2 class="text-4xl md:text-5xl font-extrabold mt-4">
-        Rooms Ready for Your Stay
-      </h2>
-      <p class="text-gray-300 mt-3 max-w-2xl mx-auto">
-        Choose from our cozy, family-friendly accommodations in Skardu. All rooms listed here are currently available.
-      </p>
+    <div class="w-full flex justify-center mb-6">
+    <div class="w-full md:w-3/4 lg:w-1/2 bg-white/5 border border-white/10 rounded-2xl p-5">
+        
+        <form action="/check-availability" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+            <input type="hidden" name="room_type" value="{{room_type}}">
+                <!-- Check-in -->
+                <div class="flex flex-col">
+                    <label class="text-sm text-gray-300 mb-1">Check-in</label>
+                    <input 
+                        type="date"
+                        name="check_in" 
+                        class="bg-white border border-white/20 rounded-lg px-4 py-2 text-black 
+                            focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
+                        id="checkin"
+                        value="{{checkin or today}}"
+                        min="{{today}}"
+                    >
+                </div>
+
+                <!-- Check-out -->
+                <div class="flex flex-col">
+                    <label class="text-sm text-gray-300 mb-1">Check-out</label>
+                    <input 
+                        type="date"
+                        name="check_out" 
+                        class="bg-white border border-white/20 rounded-lg px-4 py-2 text-black 
+                            focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
+                        id="checkout"
+                        value="{{checkout or tomorrow}}"
+                        min="{{tomorrow}}"
+                    >
+                </div>
+
+                <!-- Button -->
+                <div class="flex items-end">
+                    <button 
+                        type="submit"
+                        class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 rounded-lg transition"
+                    >
+                        Check Availability
+                    </button>
+                </div>
+
+            </form>
+
+        </div>
     </div>
 
-    <!-- Rooms Grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      {% if rooms %}
-        {% for room in rooms %}
-          <div class="relative bg-white/10 backdrop-blur-xl p-6 rounded-3xl border border-white/10 shadow-xl hover:shadow-2xl transition group">
-            <div class="relative h-56 rounded-2xl overflow-hidden mb-4">
-              <img src="{{ room.image_url }}" loading="lazy" class="absolute w-full h-full object-cover">
-            </div>
-            <h3 class="text-3xl font-bold mb-2">{{ room.name }}</h3>
-            <p class="text-gray-300 text-sm mb-2">
-              Type: {{ room.room_type | capitalize }} | Capacity: {{ room.capacity }} Guests
-            </p>
-            <p class="text-gray-300 text-sm mb-4">
-              Bathroom: {{ room.bathroom_type }} | Price: PKR {{ room.price }}
-            </p>
-            <div class="flex gap-3">
-              <a href="#" class="bg-yellow-500 text-black px-5 py-2 rounded-lg font-semibold hover:bg-white transition">
-                Book Now
-              </a>
-              <a href="/rooms/{{ room.id }}" class="bg-white/10 text-white px-5 py-2 rounded-lg border border-white/30 hover:bg-white hover:text-black transition">
-                View Details
-              </a>
-            </div>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="text-center text-gray-400 col-span-full">No rooms available for the selected type or dates.</p>
-      {% endif %}
+<!-- Header/Filter Bar -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 text-sm mb-6 border-b border-gray-700 pb-3">
+        <div class="flex flex-wrap items-center space-x-4">
+            <!-- Filter Button using Yellow accent -->
+            <button class="flex items-center space-x-1 p-2 border border-yellow-400 text-yellow-400 rounded hover:bg-yellow-400 hover:text-black transition-colors">
+                <i class="fas fa-filter text-xs"></i>
+                <span>Filter Your Search</span>
+            </button>
+            <!-- Compare Rooms link using White theme -->
+            <span class="p-2 text-gray-400">Rates are in <span class="font-bold text-white">PKR (PKR)</span></span>
+        </div>
+        
+        <!-- Price Display Options -->
+        <div class="flex items-center space-x-2 border-b-2 border-gray-700">
+            <span class="text-gray-400">Show Price:</span>
+            <a href="#" class="py-2 px-3 text-gray-400 hover:text-white transition-colors">Per Room Per Night</a>
+            <!-- Active Price Option using Yellow accent -->
+            <a href="#" class="py-2 px-3 text-yellow-400 font-semibold border-b-2 border-yellow-400">Price For Whole Stay</a>
+        </div>
     </div>
 
-  </div>
-</section>
+    <!-- Main Content Grid (Room Listings & Booking Summary) -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Left & Middle Column (Room Listings) -->
+        <div class="lg:col-span-2 space-y-6">
+            
+            <!-- 
+                JINJA LOOP START 
+                NOTE: The 'rooms' variable must be passed from your backend context.
+            -->
+            {% for room in rooms %}
+            <!-- Room Card kept white for high contrast -->
+            <div class="bg-white text-gray-800 border rounded-lg shadow-sm flex flex-col sm:flex-row overflow-hidden" id="room-{{ room.id }}">
+                
+                <!-- Image and Name -->
+                <div class="relative w-full sm:w-1/3 h-56 overflow-hidden">
+                    <!-- Dynamic Image Source -->
+                    <img src="{{ room.image_url }}" alt="{{ room.name }}" onerror="this.onerror=null;this.src='https://placehold.co/400x300/e5e7eb/374151?text=Image+Unavailable';" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 bg-black bg-opacity-60 text-white p-2 text-sm font-semibold">
+                        {{ room.name }}
+                    </div>
+                </div>
 
-{% endblock %}
+                <!-- Room Details and Booking -->
+                <div class="p-4 sm:p-6 w-full sm:w-2/3 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                        <!-- Details -->
+                        <div>
+                            <h3 class="text-lg font-bold mb-2">Best Available Rate</h3>
+                            <div class="flex items-center space-x-4 text-sm text-gray-600 mb-2">
+                                <span class="flex items-center">
+                                    <i class="fas fa-bed mr-1"></i> Room Capacity: <span class="font-semibold ml-1">{{ room.capacity }}</span>
+                                </span>
+                                <!-- Placeholder for user icon, assuming capacity is for adults/guests -->
+                                <span class="flex items-center">
+                                    <i class="fas fa-user-friends mr-1"></i>
+                                </span>
+                            </div>
+                            <!-- Inclusion Text using Yellow accent -->
+                            <p class="text-xs text-yellow-600 font-medium">Bathroom: <span class="font-semibold ml-1">{{ room.bathroom_type }}</span></p>
+                        </div>
+                        
+                        <!-- Price -->
+                        <div class="flex flex-col items-end">
+                            <!-- Price using Yellow accent - Now using JavaScript to format the price -->
+                            <div class="text-2xl font-bold text-yellow-600 flex items-center">
+                                PKR <span id="price-{{ room.id }}">{{ room.price*nights | int }}</span>
+                                <!-- Info Icon (i) -->
+                                <i onclick="openRatePopup('{{ room.price }}','{{ nights }}')" class="fas fa-info-circle text-sm text-gray-400 ml-2 cursor-pointer hover:text-gray-600"></i>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Price for {{ nights }} Night</p>
+                            <p class="text-xs text-gray-500">{{ room.capacity }} Adults, 1 Child, 1 Room</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer/Action Section -->
+                    <div class="flex justify-between items-center mt-4 pt-4 border-t border-gray-200">
+                        <div class="flex items-center space-x-4 text-sm text-yellow-600">
+                            <!-- Links using Yellow accent -->
+                            <!-- Dynamic Room Info Link -->
+                            {% if room_type == 'room' %}
+                                <a href="/rooms" class="hover:underline hover:text-yellow-700">Room Info</a>
+                            {% elif room_type == 'family-unit' %}
+                                <a href="/family-unit" class="hover:underline hover:text-yellow-700">Room Info</a>
+                            {% elif room_type == 'villa' %}
+                                <a href="/villa" class="hover:underline hover:text-yellow-700">Room Info</a>
+                            {% else %}
+                                <a href="#" class="hover:underline hover:text-yellow-700">Room Info</a>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="flex items-center space-x-3">
+                            <!-- Rooms Left warning using bright yellow -->
+                            <span class="text-yellow-400 text-sm font-medium">1 Rooms Left</span>
+                            <!-- The Add Room button uses a strong yellow/gold color -->
+                            <button onclick="addRoomToBooking('{{ room.id }}','{{ room.name}}','{{ room.price }}','{{ nights }}')" class="px-6 py-2 bg-yellow-600 hover:bg-yellow-700 text-white font-semibold text-sm rounded-md transition-colors duration-200">
+                                Add Room
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- JINJA LOOP END -->
+            
+            <!-- Fallback if no rooms are found -->
+            {% if not rooms %}
+            <div class="text-center py-12 bg-white text-gray-800 rounded-lg border border-gray-200">
+                <i class="fas fa-exclamation-circle text-yellow-600 text-4xl mb-3"></i>
+                <p class="text-lg font-semibold">No Rooms Available for the Selected Dates</p>
+                <p>Please adjust your dates or filter criteria.</p>
+            </div>
+            {% endif %}
+
+        </div>
+
+        <!-- Right Column (Booking Summary) -->
+        <div class="lg:col-span-1 hidden lg:block" id="desktopBilling">
+            <div class="sticky top-24 bg-white text-gray-800 border border-gray-200 rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-bold mb-6 text-gray-700">Booking Summary</h3>
+
+                
+                <div id="desktopBillingWrapper" class="hidden">
+
+                    <div class="flex justify-between text-sm text-gray-600">
+                        <span>Dates</span>
+                        <span>{{checkin}} - {{checkout}}</span>
+                    </div>
+
+                    <div class="border-t my-2 flex justify-between text-sm text-gray-600">
+                        <span>Nights</span>
+                        <span>{{nights}}</span>
+                    </div>
+                  
+                    <div id="billingContent"></div>
+
+                    <div class="border-t my-2 flex justify-between text-lg font-bold mt-2">
+                        <span>Total</span>
+                        <span>PKR 0</span>
+                    </div>
+
+                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 rounded-lg mt-3">
+                        Book Now
+                    </button>
+
+                </div>
+                
+                <!-- Default: No rooms -->
+                <div id="emptyBillingBox" class="flex flex-col items-center justify-center h-48 border border-dashed border-gray-300 rounded-lg bg-gray-50 text-gray-500">
+                    <i class="fas fa-bed text-yellow-600 text-5xl mb-3 opacity-80"></i>
+                    <p class="text-lg font-semibold">No Room(s)</p>
+                    <p class="text-sm">Selected</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Sticky Billing Bar (Mobile Only) -->
+    <div id="mobileBilling" class="fixed bottom-0 left-0 w-full bg-[#1f2430] text-white shadow-xl hidden lg:hidden z-50">
+
+        <div class="flex justify-between items-center px-4 py-3">
+            
+            <!-- Price Summary -->
+            <div>
+                <div class="text-lg font-bold">PKR <span id="mobileTotal">0</span></div>
+                <div class="text-xs text-green-400"><span id="mobileRooms">0</span> Room(s) Added</div>
+                <div class="text-[10px] text-gray-300">{{checkin}} - {{checkout}} , Night {{nights}}</div>
+            </div>
+
+            <!-- Book Button -->
+            <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-md">
+                Book
+            </button>
+        </div>
+
+    </div>
+    <!-- Popup Modal Background -->
+    <div id="ratePopup" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
+        <div class="bg-black rounded-xl shadow-xl p-5 w-80">
+            <h2 class="text-xl font-bold mb-3 text-white-800">Nightly Rates</h2>
+
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="border-b">
+                        <th class="py-2 font-semibold">Nights</th>
+                        <th class="py-2 font-semibold">Rate (PKR)</th>
+                    </tr>
+                </thead>
+                <tbody id="rateTableBody">
+                    <!-- Filled by JS -->
+                </tbody>
+            </table>
+
+            <button onclick="closeRatePopup()" class="mt-4 w-full bg-yellow-500 text-white py-2 rounded-lg">
+                Close
+            </button>
+        </div>
+    </div>
+
+
+</div>
+
+
+{% endblock content %}
