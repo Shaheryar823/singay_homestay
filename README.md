@@ -60,5 +60,5 @@ Pull requests are welcome!
 ---
 #■ Contact
 Shaheryar Ali
-Email: add_your_email_here
+Email: shaheryarali047@gmail.com
 GitHub: github.com/Shaheryar823
