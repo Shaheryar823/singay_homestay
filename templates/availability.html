@@ -68,9 +68,17 @@
         <!-- Price Display Options -->
         <div class="flex items-center space-x-2 border-b-2 border-gray-700">
             <span class="text-gray-400">Show Price:</span>
-            <a href="#" class="py-2 px-3 text-gray-400 hover:text-white transition-colors">Per Room Per Night</a>
-            <!-- Active Price Option using Yellow accent -->
-            <a href="#" class="py-2 px-3 text-yellow-400 font-semibold border-b-2 border-yellow-400">Price For Whole Stay</a>
+            <a href="javascript:void(0)" 
+                class="per-night-btn py-2 px-3 text-gray-400 hover:text-white transition-colors"
+                onclick="togglePrice('perNight')">
+                Per Room Per Night
+            </a>
+
+            <a href="javascript:void(0)" 
+                class="whole-stay-btn py-2 px-3 text-yellow-400 font-semibold border-b-2 border-yellow-400"
+                onclick="togglePrice('wholeStay')">
+                Price For Whole Stay
+            </a>
         </div>
     </div>
 
@@ -120,11 +128,13 @@
                         <div class="flex flex-col items-end">
                             <!-- Price using Yellow accent - Now using JavaScript to format the price -->
                             <div class="text-2xl font-bold text-yellow-600 flex items-center">
-                                PKR <span id="price-{{ room.id }}">{{ room.price*nights | int }}</span>
+                                PKR <span class="wholeprice" id="price-{{ room.id }} ">{{ room.price*nights | int }}</span>
+                                <span class=" nightprice" id="price-{{ room.id }}">{{ room.price | int }}</span>
                                 <!-- Info Icon (i) -->
                                 <i onclick="openRatePopup('{{ room.price }}','{{ nights }}')" class="fas fa-info-circle text-sm text-gray-400 ml-2 cursor-pointer hover:text-gray-600"></i>
                             </div>
-                            <p class="text-xs text-gray-500 mt-1">Price for {{ nights }} Night</p>
+                            <p id="" class="wholepricesent text-xs text-gray-500 mt-1">Price for {{ nights }} Night</p>
+                            <p id="" class="nightpricesent text-xs text-gray-500 mt-1">Price for 1 Night</p>
                             <p class="text-xs text-gray-500">{{ room.capacity }} Adults, 1 Child, 1 Room</p>
                         </div>
                     </div>
@@ -213,46 +223,56 @@
 
     </div>
     <!-- Sticky Billing Bar (Mobile Only) -->
-    <div id="mobileBilling" class="fixed bottom-0 left-0 w-full bg-[#1f2430] text-white shadow-xl hidden lg:hidden z-50">
+    <div id="mobileBilling" class="fixed bottom-0 left-0 w-full bg-[#1f2430] text-white shadow-xl hidden lg:hidden z-50 cursor-pointer">
 
-        <div class="flex justify-between items-center px-4 py-3">
-            
-            <!-- Price Summary -->
+    <!-- Top summary bar (clickable) -->
+    <div class="flex justify-between items-center px-4 py-3" onclick="toggleMobileBilling()">
             <div>
                 <div class="text-lg font-bold">PKR <span id="mobileTotal">0</span></div>
                 <div class="text-xs text-green-400"><span id="mobileRooms">0</span> Room(s) Added</div>
-                <div class="text-[10px] text-gray-300">{{checkin}} - {{checkout}} , Night {{nights}}</div>
+                <div class="text-[10px] text-gray-300">{{checkin}} - {{checkout}}, Night {{nights}}</div>
             </div>
-
-            <!-- Book Button -->
+            <!-- Book Button stays in the summary -->
             <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-md">
                 Book
             </button>
         </div>
 
+        <!-- Hidden details container -->
+        <div id="mobileBillingDetails" class="hidden p-4 border-t border-gray-600">
+            <!-- Rooms added will appear here -->
+        </div>
+
     </div>
+
     <!-- Popup Modal Background -->
     <div id="ratePopup" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center z-50">
-        <div class="bg-black rounded-xl shadow-xl p-5 w-80">
-            <h2 class="text-xl font-bold mb-3 text-white-800">Nightly Rates</h2>
+        <div class="bg-black rounded-xl shadow-xl p-5 w-80 max-h-[400px] flex flex-col">
+            <!-- Header -->
+            <h2 class="text-xl font-bold mb-3 text-white">Nightly Rates</h2>
 
-            <table class="w-full text-left border-collapse">
-                <thead>
-                    <tr class="border-b">
-                        <th class="py-2 font-semibold">Nights</th>
-                        <th class="py-2 font-semibold">Rate (PKR)</th>
-                    </tr>
-                </thead>
-                <tbody id="rateTableBody">
-                    <!-- Filled by JS -->
-                </tbody>
-            </table>
+            <!-- Scrollable Table Container -->
+            <div class="overflow-y-auto border rounded-md flex-1">
+                <table class="w-full text-left border-collapse">
+                    <thead class="sticky top-0 bg-black">
+                        <tr class="border-b border-gray-600">
+                            <th class="py-2 font-semibold text-white">Nights</th>
+                            <th class="py-2 font-semibold text-white">Rate (PKR)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="rateTableBody">
+                        <!-- Filled by JS -->
+                    </tbody>
+                </table>
+            </div>
 
-            <button onclick="closeRatePopup()" class="mt-4 w-full bg-yellow-500 text-white py-2 rounded-lg">
+            <!-- Close Button -->
+            <button onclick="closeRatePopup()" class="mt-4 w-full bg-yellow-500 text-black py-2 rounded-lg font-semibold hover:bg-yellow-600 transition">
                 Close
             </button>
         </div>
     </div>
+
 
 
 </div>

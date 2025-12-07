@@ -24,6 +24,14 @@ def rooms():
 def gallery():
     return render_template("gallery.html")
 
+@main_bp.route('/facilities')
+def facilities():
+    return render_template("facilities.html")
+
+@main_bp.route('/nearby-locations')
+def nearby_locations():
+    return render_template("nearby-locations.html")
+
 @main_bp.route('/contact')
 def contact():
     return render_template("contact.html")

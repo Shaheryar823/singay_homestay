@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- HERO -->
+<section class="relative">
+    <img src="/static/images/banner-min.webp"
+         class="w-full h-64 object-cover brightness-75">
+    <div class="absolute inset-0 flex flex-col justify-center items-center text-center">
+        <h1 class="text-4xl font-bold text-yellow-400">Facilities</h1>
+        <p class="text-gray-300 mt-2">Comfort, peace, and homely warmth.</p>
+    </div>
+</section>
+
+<!-- CONTENT -->
+<div class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+
+    <!-- Block -->
+    <div class="bg-[#1f2430] p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">Organic Farm</h2>
+        <p class="text-gray-300">
+            Fresh vegetables, apples, apricots, and traditional Baltistani herbs grown on-site.
+        </p>
+        <img src="/static/images/bbq.webp" class="w-half rounded-lg mt-4">
+    </div>
+
+    <div class="bg-[#1f2430] p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">Hammock Garden</h2>
+        <p class="text-gray-300">
+            A quiet poplar-tree garden with hammocks—perfect for reading and relaxing.
+        </p>
+        <img src="/static/images/sitting.webp" class="w-half rounded-lg mt-4">
+    </div>
+
+    <div class="bg-[#1f2430] p-6 rounded-xl shadow-lg">
+        <h2 class="text-2xl font-bold text-yellow-400 mb-3">Bonfire & Lounge</h2>
+        <p class="text-gray-300">
+            Cozy bonfire setting with warm lighting and traditional seating.
+        </p>
+        <img src="/static/images/sitting.webp" class="w-half rounded-lg mt-4">
+    </div>
+
+</div>
+
+{% endblock %}
