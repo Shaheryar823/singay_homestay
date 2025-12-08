@@ -1,10 +1,9 @@
 from flask import Blueprint, request, render_template
-from models.rooms import Room
-from config.database import db
-from services.room_manager import RoomManager
 from datetime import datetime
+from services.room_manager import RoomManager
 
 booking_bp = Blueprint("booking", __name__)
+manager = RoomManager()
 
 @booking_bp.route("/check-availability", methods=["POST"])
 def check_availability():
@@ -12,27 +11,28 @@ def check_availability():
     checkin = request.form.get("check_in")
     checkout = request.form.get("check_out")
 
-    # Convert to Python dates
+    # Convert dates
     try:
-        d1 = datetime.strptime(checkin, "%Y-%m-%d")
-        d2 = datetime.strptime(checkout, "%Y-%m-%d")
-        nights = (d2 - d1).days
-        if nights < 1:
-            nights = 1
+        d1 = datetime.strptime(checkin, "%Y-%m-%d").date()
+        d2 = datetime.strptime(checkout, "%Y-%m-%d").date()
+        nights = max((d2 - d1).days, 1)
     except:
-        nights = 1
+        return "Invalid date", 400
 
-    # Filter rooms
-    manager = RoomManager()
-    available_rooms = manager.filter_by_user_selection(room_type)
-    print(room_type,checkin,checkout,nights)
+    # Get available rooms
+    available_rooms = manager.available_between(
+        check_in=d1,
+        check_out=d2,
+        selection=room_type
+    )
 
-    # Pass everything to template
+    print("Availability Check:", room_type, checkin, checkout, nights, [r.name for r in available_rooms])
+
     return render_template(
         "availability.html",
         rooms=available_rooms,
         checkin=checkin,
         checkout=checkout,
         nights=nights,
-        room_type = room_type
+        room_type=room_type
     )
