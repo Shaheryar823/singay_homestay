@@ -84,10 +84,10 @@
       <input type="hidden" name="room_type" id="roomTypeInput">
 
       <label class="block text-sm font-medium">Check-in</label>
-      <input type="date" name="check_in" required class="w-full border p-2 rounded" min="{{today}}">
+      <input id="checkin" type="date" name="check_in" value="{{ today }}" data-today="{{ today }}" required class="w-full border p-2 rounded" min="{{today}}">
 
       <label class="block text-sm font-medium">Check-out</label>
-      <input type="date" name="check_out" required class="w-full border p-2 rounded" min="{{today}}">
+      <input id="checkout" type="date" name="check_out" value="{{ tomorrow }}" data-tomorrow="{{ tomorrow }}" required class="w-full border p-2 rounded" min="{{today}}">
 
       <button class="w-full bg-yellow-500 font-semibold py-2 rounded">
         Search

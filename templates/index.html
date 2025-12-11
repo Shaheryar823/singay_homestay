@@ -74,12 +74,12 @@
 
         <div>
           <label class="text-xs md:text-sm text-gray-700">Check-in</label>
-          <input type="date" name="check_in" min="{{today}}" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400" required>
+          <input type="text" id="checkin" name="check_in" data-today="{{ today }}" value="{{ today }}" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400" required>
         </div>
 
         <div>
           <label class="text-xs md:text-sm text-gray-700">Check-out</label>
-          <input type="date" name="check_out" min="{{today}}" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400" required>
+          <input type="text" id="checkout" name="check_out" data-tomorrow="{{ tomorrow }}" value="{{ tomorrow }}" min="{{ tomorrow }}" class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400" required>
         </div>
 
         <button type="submit" class="w-full bg-yellow-500 text-black py-2 md:py-3 rounded-lg font-semibold hover:bg-yellow-600 transition text-sm md:text-base">
@@ -300,10 +300,10 @@
       <input type="hidden" name="room_type" id="roomTypeInput">
 
       <label class="block text-sm font-medium">Check-in</label>
-      <input type="date" name="check_in" required class="w-full border p-2 rounded" min="{{today}}">
+      <input type="text" id="checkin" value="{{ today }}" data-today="{{ today }}" name="check_in" required class="w-full border p-2 rounded" min="{{today}}">
 
       <label class="block text-sm font-medium">Check-out</label>
-      <input type="date" name="check_out" required class="w-full border p-2 rounded" min="{{today}}">
+      <input type="text" id="checkout" value="{{ tomorrow }}" data-tomorrow="{{ tomorrow }}" name="check_out" required class="w-full border p-2 rounded" min="{{today}}">
 
       <button class="w-full bg-yellow-500 font-semibold py-2 rounded">
         Search
@@ -314,4 +314,7 @@
       </button>
   </form>
 </div>
+
+
+
 {% endblock %}

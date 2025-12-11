@@ -40,9 +40,15 @@ function addRoomToBooking(roomId, roomName, price, nights) {
     updateTotals();
 }
 
+let selectedRooms = [];
+
 function addDesktopRoom(roomId, roomName, nights, roomTotal) {
     const billing = document.getElementById("billingContent");
     document.getElementById("emptyBillingBox")?.remove();
+
+    if (!selectedRooms.includes(roomId)) {
+        selectedRooms.push(roomId);
+    }
 
     const box = document.createElement("div");
     box.className = "relative border-t pt-2 mt-2";
@@ -60,8 +66,18 @@ function addDesktopRoom(roomId, roomName, nights, roomTotal) {
     billing.appendChild(box);
 }
 
+function submitBooking() {
+    document.getElementById("selectedRoomId").value = JSON.stringify(selectedRooms);
+    const form = document.getElementById("bookingForm");
+    form.submit(); // submit form via POST
+}
+
+
 function addMobileRoom(roomId, roomName, nights, roomTotal) {
     const details = document.getElementById('mobileBillingDetails');
+    if (!selectedRooms.includes(roomId)) {
+        selectedRooms.push(roomId);
+    }
 
     // Create room entry
     const div = document.createElement('div');
@@ -91,6 +107,12 @@ function removeRoom(roomId, roomTotal) {
     // Remove desktop and mobile entries
     document.querySelector(`#billingContent > div[data-room-id="${roomId}"]`)?.remove();
     document.querySelector(`#mobileBillingDetails > div[data-room-id='${roomId}']`)?.remove();
+    
+    // Remove from selectedRooms list
+    const index = selectedRooms.indexOf(roomId);
+    if (index !== -1) {
+        selectedRooms.splice(index, 1);
+    }
 
     // Enable button
     const btn = document.querySelector(`#room-${roomId} button`);
@@ -113,7 +135,7 @@ function removeRoom(roomId, roomTotal) {
 
 
 function updateTotals() {
-    const desktopTotal = document.getElementById("billingContent").parentNode.querySelector("div.border-t.my-2.flex.justify-between.text-lg.font-bold span:last-child");
+    const desktopTotal = document.getElementById("desktopTotalPrice"); 
     if (desktopTotal) desktopTotal.textContent = "PKR " + commify(totalPrice);
 
     const mobileTotal = document.getElementById("mobileTotal");

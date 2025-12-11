@@ -1,0 +1,199 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 bg-black text-white">
+
+    <div class="mb-8">
+        <h1 class="text-2xl font-extrabold flex items-center mb-1">
+            <i class="fas fa-info-circle text-yellow-400 mr-3"></i>
+            Guest Information
+        </h1>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+        <!-- LEFT SIDE -->
+        <div class="lg:col-span-2 space-y-8">
+
+            <form action="/confirm-booking" method="POST" class="space-y-6">
+
+                <!-- ROOM DETAILS -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-xl">
+
+                    {% for room in rooms %}
+                    <p class="text-lg font-light mb-4 flex items-center text-yellow-400">
+                        <i class="fas fa-bed mr-2"></i>
+                        ROOM: Best Available Rate – {{ room.price }}
+                        ({{ room.capacity }} Guests)
+                        {{ room.name }} for {{ nights }} Night
+                    </p>
+                    {% endfor %}
+
+                    <h3 class="text-base font-semibold text-gray-300 mb-3">Guest Name</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+                        <select name="guest_title" class="form-select bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                            <option value="">--Select--</option>
+                            <option value="Mr">Mr.</option>
+                            <option value="Ms">Ms.</option>
+                            <option value="Mrs">Mrs.</option>
+                        </select>
+                        <input type="text" name="guest_first_name" required placeholder="First Name"
+                               class="form-input bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                        <input type="text" name="guest_last_name" required placeholder="Last Name"
+                               class="form-input bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                        <input type="text" name="special_request" placeholder="Special Requests"
+                               class="form-input bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                    </div>
+                </div>
+
+                <!-- CONTACT DETAILS -->
+                <div class="bg-white/5 border border-white/10 rounded-xl p-5 shadow-xl space-y-4">
+
+                    <h2 class="text-lg font-bold flex items-center text-yellow-400 mb-3">
+                        <i class="fas fa-user-circle mr-2"></i> Contact Details & Payment
+                    </h2>
+
+                    <!-- MOBILE -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <label class="text-sm text-gray-300 flex items-center">Mobile</label>
+                        <div class="col-span-3 flex">
+                            <select name="country_code" class="form-select w-1/4 bg-gray-800 border border-gray-700 rounded-l-lg px-2 py-2 text-white">
+                                <option value="PK">PK</option>
+                                <option value="US">US</option>
+                            </select>
+                            <input type="text" name="mobile" required
+                                   class="form-input w-3/4 bg-gray-800 border border-gray-700 rounded-r-lg px-4 py-2 text-white">
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-gray-500">Please provide WhatsApp number if you have.</p>
+
+                    <!-- EMAIL -->
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <label class="text-sm text-gray-300 flex items-center">Email</label>
+                        <div class="col-span-3">
+                            <input type="email" name="email" required
+                                   class="form-input w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                            <p class="text-xs text-gray-500 mt-1">Your confirmation will be sent to this email</p>
+                        </div>
+                    </div>
+
+                    <!-- PAYMENT METHOD -->
+                    <div class="pt-4 border-t border-gray-700">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <label class="text-sm text-gray-300 flex items-center">Payment Method</label>
+                            <div class="col-span-3">
+                                <select name="payment_method" required
+                                        class="form-select w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2 text-white">
+                                    <option value="">--Select--</option>
+                                    <option value="EasyPaisa">EasyPaisa</option>
+                                    <option value="Jazzcash">JazzCash</option>
+                                    <option value="BankTransfer">Bank Transfer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit"
+                            class="w-full bg-yellow-500 text-black font-bold py-3 rounded-lg hover:bg-yellow-400 transition">
+                        Confirm Booking
+                    </button>
+
+                </div>
+
+            </form>
+
+            <!-- HOTEL POLICY -->
+            <div class="pt-6 border-t border-gray-700">
+                <h2 class="text-xl font-bold mb-4 text-yellow-400">Hotel Policy & Booking Conditions</h2>
+
+                <div class="text-sm text-gray-400 space-y-3">
+                    <p class="font-semibold text-white">Hotel Policy</p>
+                    <p>All guests must present valid ID at check-in.</p>
+
+                    <p class="font-semibold text-white">Room Occupancy</p>
+                    <p>Extra guests above base occupancy will be charged.</p>
+
+                    <p class="font-semibold text-white">Smoking Policy</p>
+                    <p>No smoking inside rooms — charges apply for violations.</p>
+
+                    <p class="font-semibold text-white">Damage</p>
+                    <p>Guests are responsible for any property damage.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE SUMMARY -->
+        <div class="lg:col-span-1">
+            <div class="sticky top-8 bg-white text-gray-800 border border-gray-200 rounded-xl shadow-lg p-6">
+
+                <!-- HOTEL INFO -->
+                <div class="mb-4 pb-4 border-b border-gray-200">
+                    <h3 class="text-lg font-extrabold text-yellow-600 mb-1">SINGAY HOMESTAY</h3>
+                    <p class="text-sm text-gray-500">Sumbul Town, Skardu GB - Pakistan</p>
+                    <p class="text-xs text-gray-500 mt-2"><i class="fas fa-phone mr-1"></i> +92-3155337759</p>
+                    <p class="text-xs text-gray-500"><i class="fas fa-envelope mr-1"></i> singay.homestay@gmail.com</p>
+                </div>
+
+                <!-- DATES -->
+                <div class="flex justify-between items-center mb-4 pb-4 border-b border-gray-200 text-sm">
+                    <div>
+                        <p class="font-bold">Check-in</p>
+                        <p class="text-gray-500">{{ check_in }}</p>
+                    </div>
+                    <div>
+                        <p class="font-bold">Check-Out</p>
+                        <p class="text-gray-500">{{ check_out }}</p>
+                    </div>
+                    <div class="text-right">
+                        <p class="font-bold text-lg text-yellow-600">{{ nights }} Night Stay</p>
+                    </div>
+                </div>
+
+                <!-- ROOM COST -->
+                <h4 class="font-bold mb-3 text-gray-700">Rooms & Rates</h4>
+
+                <div class="space-y-4 mb-4 border-b border-gray-200 pb-4">
+                    {% for room in rooms %}
+                    <div>
+                        <p class="text-sm font-semibold">Room {{ room.name }}</p>
+                        <p class="text-xs text-gray-500">Rate: PKR {{ room.price }}</p>
+                        <p class="text-xs text-gray-500">Capacity: {{ room.capacity }}</p>
+
+                        <div class="flex justify-between mt-1">
+                            <span class="text-sm font-semibold">Subtotal</span>
+                            <span class="text-sm font-bold text-yellow-600">
+                                PKR {{ room.price * nights | int }}
+                            </span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- PRICE SUMMARY -->
+                <div class="space-y-1 mb-6 border-b border-gray-200 pb-4 text-sm">
+                    <div class="flex justify-between">
+                        <span>Total Room Charges</span>
+                        <span class="font-semibold">PKR {{ total }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Pay Now (50%)</span>
+                        <span class="font-semibold">PKR {{ (total / 2) | int }}</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Pay at Check-in (50%)</span>
+                        <span class="font-semibold">PKR {{ (total / 2) | int }}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock content %}

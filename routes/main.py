@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from utils import get_default_dates
 
 # Create blueprint
 main_bp = Blueprint('main', __name__)
@@ -6,19 +7,23 @@ main_bp = Blueprint('main', __name__)
 # Define routes (currently empty, ready for future)
 @main_bp.route('/')
 def home():
-    return render_template('index.html')
+    dates = get_default_dates()
+    return render_template('index.html', **dates)
 
 @main_bp.route('/villa')
 def villa():
-    return render_template("villa.html")
+    dates = get_default_dates()
+    return render_template("villa.html", **dates)
 
 @main_bp.route('/family-unit')
 def family_unit():
-        return render_template("family_unit.html")
+        dates = get_default_dates()
+        return render_template("family_unit.html", **dates)
 
 @main_bp.route('/rooms')
 def rooms():
-    return render_template("rooms.html")
+    dates = get_default_dates()
+    return render_template("rooms.html", **dates)
 
 @main_bp.route('/gallery')
 def gallery():

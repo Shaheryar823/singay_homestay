@@ -14,13 +14,13 @@
                 <div class="flex flex-col">
                     <label class="text-sm text-gray-300 mb-1">Check-in</label>
                     <input 
-                        type="date"
+                        type="text"
                         name="check_in" 
                         class="bg-white border border-white/20 rounded-lg px-4 py-2 text-black 
                             focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
                         id="checkin"
-                        value="{{checkin or today}}"
-                        min="{{today}}"
+                        value="{{checkin}}"
+                        data-today="{{today}}"
                     >
                 </div>
 
@@ -28,13 +28,13 @@
                 <div class="flex flex-col">
                     <label class="text-sm text-gray-300 mb-1">Check-out</label>
                     <input 
-                        type="date"
+                        type="text"
                         name="check_out" 
                         class="bg-white border border-white/20 rounded-lg px-4 py-2 text-black 
                             focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400"
                         id="checkout"
-                        value="{{checkout or tomorrow}}"
-                        min="{{tomorrow}}"
+                        value="{{checkout}}"
+                        data-tomorrow="{{tomorrow}}"
                     >
                 </div>
 
@@ -201,13 +201,21 @@
                     <div id="billingContent"></div>
 
                     <div class="border-t my-2 flex justify-between text-lg font-bold mt-2">
-                        <span>Total</span>
-                        <span>PKR 0</span>
+                        <span id="desktopTotalPrice"></span>
                     </div>
 
-                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 rounded-lg mt-3">
+                    <form id="bookingForm" action="/booking" method="POST">
+                        <input type="hidden" name="check_in" value="{{checkin}}">
+                        <input type="hidden" name="check_out" value="{{checkout}}">
+                        <input type="hidden" name="nights" value="{{nights}}">
+                        <input type="hidden" name="room_id" id="selectedRoomId">
+                    </form>
+
+                    <button onclick="submitBooking()"
+                        class="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 rounded-lg mt-3">
                         Book Now
                     </button>
+
 
                 </div>
                 
@@ -233,7 +241,16 @@
                 <div class="text-[10px] text-gray-300">{{checkin}} - {{checkout}}, Night {{nights}}</div>
             </div>
             <!-- Book Button stays in the summary -->
-            <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-md">
+            
+            <form id="bookingForm" action="/booking" method="POST">
+                <input type="hidden" name="check_in" value="{{checkin}}">
+                <input type="hidden" name="check_out" value="{{checkout}}">
+                <input type="hidden" name="nights" value="{{nights}}">
+                <input type="hidden" name="room_id" id="selectedRoomId">
+            </form>
+
+            <button onclick="submitBooking()"
+                    class="bg-yellow-600 hover:bg-yellow-700 text-white font-semibold px-6 py-2 rounded-md">
                 Book
             </button>
         </div>

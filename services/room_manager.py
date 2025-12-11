@@ -32,6 +32,13 @@ class RoomManager:
             room_type=room_type,
             is_available=True
         ).all()
+    
+
+    # -------------------------
+    # Rooms by id
+    # -------------------------
+    def by_id(self, room_id):
+        return Room.query.get(room_id)
 
     # -------------------------
     # Filter by frontend selection
@@ -55,7 +62,8 @@ class RoomManager:
         # Get overlapping bookings
         overlapping = Booking.query.filter(
             and_(Booking.check_in < check_out,
-                Booking.check_out > check_in)
+                Booking.check_out > check_in,
+                Booking.status == "confirmed")
         ).all()
 
         booked_ids = {b.room_id for b in overlapping}

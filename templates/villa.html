@@ -45,16 +45,14 @@
 
         <div>
             <label class="text-xs md:text-sm text-gray-700">Check-in</label>
-            <input name="check_in" type="date" required 
-                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400"
-                  min="{{today}}">
+            <input id="checkin" name="check_in" type="text" value="{{ today }}" data-today="{{ today }}" required 
+                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
         </div>
 
         <div>
             <label class="text-xs md:text-sm text-gray-700">Check-out</label>
-            <input name="check_out" type="date" required
-                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400"
-                  min="{{today}}">
+            <input id="checkout" name="check_out" type="text" value="{{ tomorrow }}" data-tomorrow="{{ tomorrow }}" required
+                  class="w-full p-2 md:p-3 border rounded-md focus:ring-2 focus:ring-yellow-400">
         </div>
 
         <div>
@@ -228,10 +226,10 @@
       <input type="hidden" name="room_type" id="roomTypeInput">
 
       <label class="block text-sm font-medium">Check-in</label>
-      <input type="date" name="check_in" required class="w-full border p-2 rounded" min="{{today}}">
+      <input id="checkin" type="date" name="check_in" value="{{ today }}" data-today="{{ today }}" required class="w-full border p-2 rounded" min="{{today}}">
 
       <label class="block text-sm font-medium">Check-out</label>
-      <input type="date" name="check_out" required class="w-full border p-2 rounded" min="{{today}}">
+      <input id="checkout" type="date" name="check_out" value="{{ tomorrow }}" data-tomorrow="{{ tomorrow }}" required class="w-full border p-2 rounded" min="{{today}}">
 
       <button class="w-full bg-yellow-500 font-semibold py-2 rounded">
         Search
